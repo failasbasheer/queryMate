@@ -14,7 +14,7 @@ export default function QueryMate() {
     return removeMd(text).replace(/\s+/g, " ").trim();
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     if (!question.trim()) {
       setAnswer("⚠️ Please enter a question.");
