@@ -9,7 +9,7 @@ export default function QueryMate() {
   const [rawAnswer, setRawAnswer] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const cleanAnswer = (text) => {
+  const cleanAnswer = (text: string) => {
     if (!text) return "";
     return removeMd(text).replace(/\s+/g, " ").trim();
   };
