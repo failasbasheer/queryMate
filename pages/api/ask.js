@@ -59,9 +59,11 @@ export default async function handler(req, res) {
   if (!question) {
     return res.status(400).json({ message: "Question is required." });
   }
+const apiKey = process.env.OPENROUTER_API_KEY;
+if (!apiKey) {
+  return res.status(500).json({ message: "OpenRouter API key not set" });
+}
 
-  const apiKey =
-    "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";
 
   try {
     console.log("Sending request to OpenRouter…");
