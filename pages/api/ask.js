@@ -60,6 +60,8 @@ export default async function handler(req, res) {
     return res.status(400).json({ message: "Question is required." });
   }
 const apiKey = process.env.OPENROUTER_API_KEY;
+console.log(process.env.OPENROUTER_API_KEY);
+
 if (!apiKey) {
   return res.status(500).json({ message: "OpenRouter API key not set" });
 }
