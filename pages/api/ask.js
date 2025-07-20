@@ -59,14 +59,9 @@
 // }
 
 
-
 import axios from "axios";
-import type { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
+export default async function handler(req, res) {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Only POST allowed" });
   }
@@ -105,7 +100,7 @@ export default async function handler(
       "No answer received.";
 
     return res.status(200).json({ answer });
-  } catch (error: any) {
+  } catch (error) {
     const details = error?.response?.data || error?.message || "Unknown error";
     return res.status(500).json({
       message: "Failed to get response from OpenRouter.",
